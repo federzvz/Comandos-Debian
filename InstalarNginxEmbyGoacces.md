@@ -310,6 +310,7 @@ Blind-Adress 0.0.0.0
 
 ```
 
+![alt text](https://phoenixnap.com/kb/wp-content/uploads/2021/04/bind-address-loaction-mysqld-remote-mysql-connection.png)
 > Modificar `Blind-Adress 127.0.0.1` -> `Blind-Adress 0.0.0.0`
 
 `systemctl restart mysql`
