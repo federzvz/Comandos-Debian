@@ -334,5 +334,13 @@ MODIFICAR COMO SE MUESTRA EN LA IMAGEN EN AMARILLO
 
 `systemctl restart mysql`
 
+Para probar la conexión a la base de datos remota puedes realizar lo siguiente:
+
+`mysql -u sample-admin -h 192.168.200.107 -p`
+
+> `sample-admin` es el Usuario creado en el Contenedor3(ct-node3)
+>
+> `192.168.200.107` es la IP dónde está alojada la base de datos remota, la cual corresponde al contenedor3(ct-node3).
+
 
 
