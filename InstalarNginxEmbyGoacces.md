@@ -312,6 +312,14 @@ Blind-Adress 0.0.0.0
 
 > Modificar `Blind-Adress 127.0.0.1` -> `Blind-Adress 0.0.0.0`
 
+`systemctl restart mysql`
+
+`iptables -A INPUT -p tcp --dport 3306 -j ACCEPT`
+
+`iptables -A INPUT -p tcp -s 192.168.200.107 --dport 3306 -j ACCEPT`
+
+> La IP `192.168.200.107` corresponde al Contenedor3.
+
 ***EL CONTENEDOR3(ct-node3) HA SIDO CONFIGURADO, AHORA VOLVER AL PRIMER CONTENEDOR(ct-node1) Y REALIZAR LO SIGUIENTE***
 
 `cd /var/www/equipo-10-admininfra.edu.uy/wordpress`
@@ -321,5 +329,8 @@ Blind-Adress 0.0.0.0
 MODIFICAR COMO SE MUESTRA EN LA IMAGEN EN AMARILLO
           
 ![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian4.png)
+
+`systemctl restart mysql`
+
 
 
