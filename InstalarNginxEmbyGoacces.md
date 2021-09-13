@@ -2,18 +2,21 @@
 En el siguiente manual de configuración se implementarán 3 contenedores LXC en Proxmox y se configurarán servidores HTTP 
 utilizando el servidor web Nginx, cada contenedor se implementará de la siguiente manera:
 
-ct-node1(Contenedor 1): tendrá configurado tres sitios virtuales
-◦ equipo-nro-admininfra.edu.uy: contendrá un sitio web básico de wordpress.
-◦ equipo-nro-emby.admininfra.edu.uy: redireccionara el trafico al nodo ct-node2.
-◦ dashboard-equipo-nro.admininfra.edu.uy: mostrara una instancia del dashboard
+ct-node1(Contenedor 1): tendrá configurado tres sitios virtuales:
+
+1) equipo-nro-admininfra.edu.uy: contendrá un sitio web básico de wordpress.
+
+2) equipo-nro-emby.admininfra.edu.uy: redireccionara el trafico al nodo ct-node2.
+
+3) dashboard-equipo-nro.admininfra.edu.uy: mostrara una instancia del dashboard
 goaccess.
 
-ct-node2(Contenedor 2): tendrá configurado el servidor de multimedia emby, donde se deberá de
+ct-node2(Contenedor 2): Tendrá configurado el servidor de multimedia emby, donde se deberá de
 alojar un video, la instancia de nginx deberá retornar un sitio dinámico en php que
 retornara el contenido del directorio de videos de emby.
 
-ct-node3(Contenedor 3): tendrá configurado el gestor de base de datos(mysql) para la instancia de
-wordpress de ct-node1.
+ct-node3(Contenedor 3): Tendrá configurado el gestor de base de datos(mysql) para la instancia de
+wordpress de ct-node1(Contenedor1).
 
 ```
 ct-node1: tendrá configurado tres sitios virtuales
