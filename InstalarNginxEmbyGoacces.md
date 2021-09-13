@@ -330,6 +330,8 @@ MODIFICAR COMO SE MUESTRA EN LA IMAGEN EN AMARILLO
           
 ![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian4.png)
 
+> En `DB_HOST`, por tanto cambiar `localhost` por `192.168.200.107`(IP del Contenedor3(ct-node3)
+
 `systemctl restart mysql`
 
 
