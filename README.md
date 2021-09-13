@@ -2,11 +2,8 @@
 ### [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/main/InstalarNginxEmbyGoacces.md)
 
 REQUERIMENTOS PREVIOS:
-> Proxmox.
-> 
-> 3 contenedores LXC. 
-> 
-> **ct-node1**, **ct-node2** **ct-node3** son contenedores LXC montados con la infraestructura Proxmox (Ver [InstalarProxmox.md](https://github.com/federzvz/Linux-Debian/blob/main/InstalarProxmox)).
+>  Se requiere 3 contenedores LXC en Proxmox (Ver [InstalarProxmox.md](https://github.com/federzvz/Linux-Debian/blob/main/InstalarProxmox)).
+
 
 En `InstalarNginxEmbyGoacces.md` se configurará lo siguiente:
 * **ct-node1**
