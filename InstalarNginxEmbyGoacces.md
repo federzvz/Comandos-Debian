@@ -294,7 +294,9 @@ Instalar MySql server
 
 `CREATE DATABASE sampledbwp;`
 
-`GRANT ALL PRIVILEGES ON EJEMPLO.* TO sample-admin@’192.168.200.5’ IDENTIFIED BY ‘SamplePassword1’;`
+`GRANT ALL PRIVILEGES ON sampledbwp.* TO sample-admin@’192.168.200.5’ IDENTIFIED BY ‘SamplePassword1’;`
+
+> La IP `192.168.200.5` corresponde a la IP del Contenedor1(ct-node1)
 
 `quit`
 
