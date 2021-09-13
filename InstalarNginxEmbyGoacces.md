@@ -31,30 +31,6 @@ wordpress de ct-node1(Contenedor1).
 
 `systemctl enable nginx.service`
 
-`systemctl edit mariadb`
-
-***PEGAR***
-```
-	# /lib/systemd/system/mariadb.service
-	[Service]
-	ProtectHome=false
-	ProtectSystem=false
-	PrivateDevices=false
-```
-***GUARDAR***
-
-`systemctl daemon-reload`
-
-`systemctl start mariadb`
-
-`systemctl enable mariadb.service`
-
-`apt install build-essential`
-
-`mysq_secure_installation`
-        
-![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian1-768x740.png)
-
 `mkdir /var/www/equipo-10-admininfra.edu.uy`
 
 `cd /var/www/equipo-10-admininfra.edu.uy`
@@ -66,12 +42,6 @@ wordpress de ct-node1(Contenedor1).
 `cd wordpress`
 
 `mv wp-config-sample.php wp-config.php`
-
-`nano wp-config.php`
-		9):
-			(OPCIONAL AL IGUAL QUE PASO '6)')
-          
-![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian4.png)
 
 `chown -R www-data:www-data /var/www/equipo-10-admininfra.edu.uy/wordpress`
 
@@ -259,11 +229,14 @@ log-format %h %^[%d:%t %^] "%r" %s %b
 
 *** AGREGAR UN PUERTO EN LA VM ***
           
-![alt text](https://cdn.discordapp.com/attachments/883488196036534297/886380346931826718/unknown.png) 192.168.31.186   
+![alt text](https://cdn.discordapp.com/attachments/883488196036534297/886380346931826718/unknown.png)
 
 > `192.168.31.186` Es dirección IPv4 de tu equipo host. 
+> 
 > `65003` Número de puerto a elección.
+> 
 > `10.0.2.220` Es la IP correspondiente a la red net0 del contenedor 2 (ct-node2)
+> 
 > `8096` Puerto utilizado para el servicio Emby.
 
 *** CREAR CARPETA DONDE GUARDAR LOS VIDEOS: ***
@@ -281,4 +254,70 @@ log-format %h %^[%d:%t %^] "%r" %s %b
 `192.168.200.105 equipo-10-emby.admininfra.edu.uy`
 
 >192.168.200.105 Corresponde a la IP de mi contenedor 1, tu debes poner la IP correspondiente a tu contenedor.
+
+
+***____________________________________________________________________________________________________________________________________________***
+
+***CONFIGURACIÓN DEL TERCER CONTENEDOR: (ct-node3)***
+
+> Tendrá configurado el gestor de base de datos(mysql) para la instancia de wordpress que se configuró en el Contenedor1(ct-node1).
+
+Instalar MySql server
+
+`Apt install default-mysql-server`
+
+`systemctl edit mariadb`
+
+***PEGAR***
+```
+	# /lib/systemd/system/mariadb.service
+	[Service]
+	ProtectHome=false
+	ProtectSystem=false
+	PrivateDevices=false
+```
+***GUARDAR***
+
+`systemctl daemon-reload`
+
+`systemctl start mariadb`
+
+`systemctl enable mariadb.service`
+
+`apt install build-essential`
+
+`mysq_secure_installation`
+        
+![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian1-768x740.png)
+
+`mysql -u root -p`
+
+`CREATE DATABASE sampledbwp;`
+
+`GRANT ALL PRIVILEGES ON EJEMPLO.* TO sample-admin@’192.168.200.5’ IDENTIFIED BY ‘SamplePassword1’;`
+
+`quit`
+
+***MODIFICAR EL SIGUIENTE ARCHIVO PARA BRINDAR ACCESO REMOTO AL NUESTRO SERVIDOR MSQL***
+
+`nano /etc/mysql/mariadb.conf.d/50-server.cnf`
+
+```
+
+Blind-Adress 0.0.0.0
+
+```
+
+> Modificar `Blind-Adress 127.0.0.1` -> `Blind-Adress 0.0.0.0`
+
+***EL CONTENEDOR3(ct-node3) HA SIDO CONFIGURADO, AHORA VOLVER AL PRIMER CONTENEDOR(ct-node1) Y REALIZAR LO SIGUIENTE***
+
+`cd /var/www/equipo-10-admininfra.edu.uy/wordpress`
+
+`nano wp-config.php`
+
+MODIFICAR COMO SE MUESTRA EN LA IMAGEN EN AMARILLO
+          
+![alt text](https://markontech.com/wp-content/uploads/2021/05/install-wordpress-nginx-debian4.png)
+
 
