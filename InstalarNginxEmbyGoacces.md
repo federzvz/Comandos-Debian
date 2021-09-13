@@ -1,6 +1,6 @@
 # laboratorio1ADMIN-INFRA
-En el siguiente manual de configuración se implementarán 3 contenedores LXC en Proxmox servidores HTTP 
-utilizando el servidor web Nginx, en el cual se configurarán de la siguiente manera:
+En el siguiente manual de configuración se implementarán 3 contenedores LXC en Proxmox y se configurarán servidores HTTP 
+utilizando el servidor web Nginx, cada contenedor se implementará de la siguiente manera:
 
 ct-node1(Contenedor 1): tendrá configurado tres sitios virtuales
 ◦ equipo-nro-admininfra.edu.uy: contendrá un sitio web básico de wordpress.
