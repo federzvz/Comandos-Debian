@@ -18,5 +18,4 @@ En [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/m
   * PHP
 * **ct-node3** (Contenedor LXC 3)
   * Nginx
-  * PHP
   * Gestor de base de datos MYSQL
