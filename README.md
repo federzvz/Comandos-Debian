@@ -6,16 +6,17 @@ REQUERIMENTOS PREVIOS:
 
 
 En [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/main/InstalarNginxEmbyGoacces.md) se configurará lo siguiente:
-* **ct-node1**
+* **ct-node1** (Contenedor LXC 1)
   * Nginx
   * 3 Sitios Web virtuales
   * Proxy Reverso
   * Wordpress
   * Goacces Dashboard
-* **ct-node2**
+* **ct-node2** (Contenedor LXC 2)
   * Nginx
   * Emby
   * PHP
-* **ct-node3**
+* **ct-node3** (Contenedor LXC 3)
   * Nginx
-  * PHP...
+  * PHP
+  * Gestor de base de datos MYSQL
