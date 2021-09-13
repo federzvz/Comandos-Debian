@@ -167,6 +167,7 @@ Ir a tu navegador predeterminado y acceder a la URL:
 >**dashboard-equipo-nro.admininfra.edu.uy:** mostrara una instancia del dashboard goaccess
 
 ***INSTALAR GOACCES***
+
 `apt install libncursesw5-dev libgeoip-dev apt-transport-https `
 
 `cd /usr/src`
@@ -204,35 +205,47 @@ date-format %d/%b/%Y
 log-format %h %^[%d:%t %^] "%r" %s %b
 
 ```
+`mkdir /var/www/dashboard-equipo-10.admininfra.edu.uy`
 
-				1.1.4):
-					- mkdir /var/www/dashboard-equipo-10.admininfra.edu.uy
-					- cd /var/www/dashboard-equipo-10.admininfra.edu.uy
-					- PRENDER(QUEDA CORRIENDO)
-						- goaccess /var/log/nginx/access.log -o access_log.html --real-time-html --addr=192.168.200.105  --> IP DEL CT-NODO1
-			1.2): 
-				- nano /etc/nginx/sites-available/dashboard
-					- PEGAR:
-						server {
-							listen 80;
-							listen [::]:80;
-							root /var/www/dashboard-equipo-10.admininfra.edu.uy;
-							index access_log.html;
-							server_name dashboard-equipo-10.admininfra.edu.uy;
-							location / {
-									try_files $uri $uri/ /access_log.html?$args;
-							}
-						}
-			1.3):
-				- ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/
-				- nginx -s reload
-			1.4):
-				|| EN EQUIPO HOST ||
-				1.4.1):
-					- acceder al archivo C:\Windows\System32\drivers\etc\hosts
-					- agregar la siguiente linea al final:
-						- 'ipDelContenedor1' dashboard-equipo-10.admininfra.edu.uy
-						- GUARDAR!!!
+`cd /var/www/dashboard-equipo-10.admininfra.edu.uy`
+
+`goaccess /var/log/nginx/access.log -o access_log.html --real-time-html --addr=192.168.200.105  --> IP DEL CT-NODO1`
+> Es un monitoreo en tiempo real por lo tanto el comando queda corriendo en primer plano.
+
+`nano /etc/nginx/sites-available/dashboard`
+***PEGAR:***
+
+```
+	server {
+		listen 80;
+		listen [::]:80;
+		root /var/www/dashboard-equipo-10.admininfra.edu.uy;
+		index access_log.html;
+		server_name dashboard-equipo-10.admininfra.edu.uy;
+		location / {
+				try_files $uri $uri/ /access_log.html?$args;
+		}
+	}
+```
+
+`ln -s /etc/nginx/sites-available/dashboard /etc/nginx/sites-enabled/`
+
+`nginx -s reload`
+
+
+***MODIFICAR ARCHIVO HOSTS DE WINDOWS***
+
+>Ejecutar CMD como administrador
+
+`notepad drivers/etc/hosts`
+
+***PEGAR ABAJO DEL TODO:***
+
+`192.168.200.105 equipo-10-emby.admininfra.edu.uy`
+
+>192.168.200.105 Corresponde a la IP de mi contenedor 1, tu debes poner la IP correspondiente a tu contenedor.
+
+
 ct-node2:	tendrá configurado el servidor de multimedia emby, donde se deberá de alojar un video, la instancia de nginx deberá retornar un sitio dinámico en php que retornara el contenido del directorio de videos de emby.
 	1):
 		- wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.6.4.0/emby-server-deb_4.6.4.0_amd64.deb
