@@ -1,8 +1,8 @@
 # laboratorio1ADMIN-INFRA
-En el siguiente manual de configuración se implementarán 3 contenedores LXC en Proxmox y se configurarán servidores HTTP 
+En las siguientes lineas de configuración se implementarán 3 contenedores LXC en Proxmox y se configurarán servidores HTTP 
 utilizando el servidor web Nginx, cada contenedor se implementará de la siguiente manera:
 
-ct-node1(Contenedor 1): tendrá configurado tres sitios virtuales:
+**ct-node1**(Contenedor 1): tendrá configurado tres sitios virtuales:
 
 1) equipo-nro-admininfra.edu.uy: contendrá un sitio web básico de wordpress.
 
@@ -11,16 +11,17 @@ ct-node1(Contenedor 1): tendrá configurado tres sitios virtuales:
 3) dashboard-equipo-nro.admininfra.edu.uy: mostrara una instancia del dashboard
 goaccess.
 
-ct-node2(Contenedor 2): Tendrá configurado el servidor de multimedia emby, donde se deberá de
+**ct-node2**(Contenedor 2): Tendrá configurado el servidor de multimedia emby, donde se deberá de
 alojar un video, la instancia de nginx deberá retornar un sitio dinámico en php que
 retornara el contenido del directorio de videos de emby.
 
-ct-node3(Contenedor 3): Tendrá configurado el gestor de base de datos(mysql) para la instancia de
+**ct-node3**(Contenedor 3): Tendrá configurado el gestor de base de datos(mysql) para la instancia de
 wordpress de ct-node1(Contenedor1).
 
 
+***____________________________________________________________________________________________________________________________________________***
 
-***ct-node1: Tendrá configurado tres sitios virtuales***
+***CONFIGURACIÓN DEL PRIMER CONTENEDOR: (ct-node1)***
 
 >**equipo-nro-admininfra.edu.uy**: contendrá un sitio web básico de wordpress.
 
@@ -241,26 +242,43 @@ log-format %h %^[%d:%t %^] "%r" %s %b
 
 ***PEGAR ABAJO DEL TODO:***
 
-`192.168.200.105 equipo-10-emby.admininfra.edu.uy`
+`192.168.200.105 dashboard-equipo-10.admininfra.edu.uy`
 
 >192.168.200.105 Corresponde a la IP de mi contenedor 1, tu debes poner la IP correspondiente a tu contenedor.
 
 
-ct-node2:	tendrá configurado el servidor de multimedia emby, donde se deberá de alojar un video, la instancia de nginx deberá retornar un sitio dinámico en php que retornara el contenido del directorio de videos de emby.
-	1):
-		- wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.6.4.0/emby-server-deb_4.6.4.0_amd64.deb
-		- dpkg -i emby-server-deb_4.6.4.0_amd64.deb
-			1.1): AGREGAR PUERTO EN LA VM:
-```            
-![alt text](https://cdn.discordapp.com/attachments/883488196036534297/886380346931826718/unknown.png)
-```	
-			1.2) - CREAR CARPETA DONDE GUARDAR LOS VIDEOS:
-				mkdir -p /emby-library/Movies
-			|| EN EQUIPO HOST ||
-			1.3):
-				- acceder al archivo C:\Windows\System32\drivers\etc\hosts
-				- agregar la siguiente linea al final:
-					- 'ipDelContenedor1' equipo-10-emby.admininfra.edu.uy
-					- GUARDAR!!!
-		- ¡¡¡VER equipo-nro-emby.admininfra.edu.uy!!!
-```
+***____________________________________________________________________________________________________________________________________________***
+
+***CONFIGURACIÓN DEL SEGUNDO CONTENEDOR: (ct-node2)***
+
+> ct-node2: tendrá configurado el servidor de multimedia emby, donde se deberá de alojar un video, la instancia de nginx deberá retornar un sitio dinámico en php que retornara >el contenido del directorio de videos de emby.
+
+`wget https://github.com/MediaBrowser/Emby.Releases/releases/download/4.6.4.0/emby-server-deb_4.6.4.0_amd64.deb`
+
+`dpkg -i emby-server-deb_4.6.4.0_amd64.deb`
+
+*** AGREGAR UN PUERTO EN LA VM ***
+          
+![alt text](https://cdn.discordapp.com/attachments/883488196036534297/886380346931826718/unknown.png) 192.168.31.186   
+
+> `192.168.31.186` Es dirección IPv4 de tu equipo host. 
+> `65003` Número de puerto a elección.
+> `10.0.2.220` Es la IP correspondiente a la red net0 del contenedor 2 (ct-node2)
+> `8096` Puerto utilizado para el servicio Emby.
+
+*** CREAR CARPETA DONDE GUARDAR LOS VIDEOS: ***
+
+`mkdir -p /emby-library/Movies`
+				
+***MODIFICAR ARCHIVO HOSTS DE WINDOWS SI NO LO HAS HECHO***
+
+>Ejecutar CMD como administrador
+
+`notepad drivers/etc/hosts`
+
+***PEGAR ABAJO DEL TODO:***
+
+`192.168.200.105 equipo-10-emby.admininfra.edu.uy`
+
+>192.168.200.105 Corresponde a la IP de mi contenedor 1, tu debes poner la IP correspondiente a tu contenedor.
+
