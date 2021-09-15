@@ -317,9 +317,9 @@ Blind-Adress 0.0.0.0
 
 `iptables -A INPUT -p tcp --dport 3306 -j ACCEPT`
 
-`iptables -A INPUT -p tcp -s 192.168.200.107 --dport 3306 -j ACCEPT`
+`iptables -A INPUT -p tcp -s 192.168.200.105 --dport 3306 -j ACCEPT`
 
-> La IP `192.168.200.107` corresponde al Contenedor3.
+> La IP `192.168.200.105` corresponde al Contenedor3.
 
 ***EL CONTENEDOR3(ct-node3) HA SIDO CONFIGURADO, AHORA VOLVER AL PRIMER CONTENEDOR(ct-node1) Y REALIZAR LO SIGUIENTE***
 
