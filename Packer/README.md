@@ -1,5 +1,7 @@
 
-[![IMAGE ALT TEXT HERE](https://r00t4bl3.com/uploads/featured-nginx-debian-featured-521026a4ac6733bfa016461aba1d4a03.png)](https://www.youtube.com/watch?v=rHqrqzbE1Z4)
+<a href="https://www.youtube.com/watch?v=rHqrqzbE1Z4">
+<img src="https://img.youtube.com/vi/rHqrqzbE1Z4/0.jpg" width="200" height="150"/>
+</a>
 
 Se implementará con el software Packer una imagen de Debian 11 que contendrá el servidor nginx de forma automatizada utilizando un script en batch.
 
