@@ -20,6 +20,8 @@ En [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/m
   * Nginx
   * Gestor de base de datos MYSQL
 
+***_______________________________________________________________________________________________________________________***
+
 ### [Packer: Debian 11 y Nginx](https://github.com/federzvz/Linux-Debian/tree/main/Packer)
 
 REQUERIMENTOS PREVIOS:
