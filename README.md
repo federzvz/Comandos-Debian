@@ -24,5 +24,7 @@ En [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/m
 
 REQUERIMENTOS PREVIOS:
 >  Tener instalado [Vagrant.](https://app.vagrantup.com/boxes/search)
+>  
 >  Tener instalado [VirtualBox.](https://www.virtualbox.org/)
+>  
 >  Tener instalado [Packer.](https://www.packer.io/)
