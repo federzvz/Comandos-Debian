@@ -1,3 +1,6 @@
+
+[![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/watch?v=rHqrqzbE1Z4)
+
 Se implementará con el software Packer una imagen de Debian 11 que contendrá el servidor nginx de forma automatizada utilizando un script en batch.
 
 Abrir CMD como administrador.
