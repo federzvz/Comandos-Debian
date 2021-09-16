@@ -19,3 +19,10 @@ En [InstalarNginxEmbyGoacces.md](https://github.com/federzvz/Linux-Debian/blob/m
 * **ct-node3** (Contenedor LXC 3)
   * Nginx
   * Gestor de base de datos MYSQL
+
+### [Packer: Debian 11 y Nginx](https://github.com/federzvz/Linux-Debian/tree/main/Packer)
+
+REQUERIMENTOS PREVIOS:
+>  Tener instalado [Vagrant.](https://app.vagrantup.com/boxes/search)
+>  Tener instalado [VirtualBox.](https://www.virtualbox.org/)
+>  Tener instalado [Packer.](https://www.packer.io/)
